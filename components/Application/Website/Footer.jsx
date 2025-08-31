@@ -26,7 +26,7 @@ const Footer = () => {
                         className='w-36 mb-2'
                     />
                     <p className='text-gray-500 text-sm'>
-                        <i><b>STYLITHIC FASHIONS</b></i> is your trusted destination for quality and convenience. From fashion to essentials, we bring everything you need right to your doorstep. Shop smart, live better — only at <i><b>STYLITHIC FASHIONS</b></i>.
+                    <b>STYLITHIC FASHIONS</b> — your trusted destination for style, quality, and everyday convenience. From timeless fashion to daily essentials, we deliver everything you need, straight to your doorstep. Shop smarter, live better, and experience the difference — only with<b>STYLITHIC FASHIONS</b>.
                     </p>
                 </div>
 
