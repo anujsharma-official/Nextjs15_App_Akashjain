@@ -26,7 +26,7 @@ const Footer = () => {
                         className='w-36 mb-2'
                     />
                     <p className='text-gray-500 text-sm'>
-                    <b>STYLITHIC FASHIONS</b> — your trusted destination for style, quality, and everyday convenience. From timeless fashion to daily essentials, we deliver everything you need, straight to your doorstep. Shop smarter, live better, and experience the difference — only with<b>STYLITHIC FASHIONS</b>.
+                    <b>STYLITHIC FASHIONS</b> — your trusted destination for style, quality, and everyday convenience. From timeless fashion to daily essentials, we deliver everything you need, straight to your doorstep. Shop smarter, live better, and experience the difference — only with <b>STYLITHIC FASHIONS</b>.
                     </p>
                 </div>
 
@@ -107,7 +107,7 @@ const Footer = () => {
                         </li>
                         <li className='mb-2 text-gray-500 flex gap-2'>
                             <MdOutlineMail size={20} />
-                            <Link href="mailto:seller.cheap.1304@gmail.com" className='hover:text-primary text-sm'>seller.cheap.1304@gmail.com</Link>
+                            <Link href="mailto:Stylithic.sup.1304@gmail.com" className='hover:text-primary text-sm'>Stylithic.sup.1304@gmail.com</Link>
                         </li>
 
                     </ul>
@@ -115,18 +115,14 @@ const Footer = () => {
 
                     <div className='flex gap-5 mt-5'>
 
-                        {/* <Link href="">
-                            <AiOutlineYoutube className='text-primary' size={25} />
-                        </Link> */}
+                       
                         <Link href="">
                             <FaInstagram className='text-primary' size={25} />
                         </Link>
                         <Link href="">
                             <FaWhatsapp className='text-primary' size={25} />
                         </Link>
-                        {/* <Link href="">
-                            <TiSocialFacebookCircular className='text-primary' size={25} />
-                        </Link> */}
+
                         <Link href="">
                             <FiTwitter className='text-primary' size={25} />
                         </Link>
