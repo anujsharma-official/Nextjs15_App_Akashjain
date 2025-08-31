@@ -26,7 +26,7 @@ const Footer = () => {
                         className='w-36 mb-2'
                     />
                     <p className='text-gray-500 text-sm'>
-                        E-store is your trusted destination for quality and convenience. From fashion to essentials, we bring everything you need right to your doorstep. Shop smart, live better — only at E-store.
+                        <i><b>STYLITHIC FASHIONS</b></i> is your trusted destination for quality and convenience. From fashion to essentials, we bring everything you need right to your doorstep. Shop smart, live better — only at <i><b>STYLITHIC FASHIONS</b></i>.
                     </p>
                 </div>
 
