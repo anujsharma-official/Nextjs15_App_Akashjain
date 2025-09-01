@@ -123,11 +123,11 @@ const Footer = () => {
                     <div className='flex gap-5 mt-5'>
 
                        
-                        <Link href="">
+                        <Link href="https://www.instagram.com/akash_618_?igsh=MjAxc2UzOTc4bTBh">
                             <FaInstagram className='text-primary' size={25} />
                         </Link>
-                        <Link href="">
-                            <FaWhatsapp className='text-primary'  href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`} size={25} />
+                        <Link href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`}>
+                            <FaWhatsapp className='text-primary'   size={25} />
                         </Link>
 
                     </div>
