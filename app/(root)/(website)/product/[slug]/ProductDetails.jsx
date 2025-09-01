@@ -67,6 +67,7 @@ const ProductDetails = ({ product, variant, colors, sizes, reviewCount }) => {
 
 
     const handleAddToCart = () => {
+        
         const cartProduct = {
             productId: product._id,
             variantId: variant._id,
