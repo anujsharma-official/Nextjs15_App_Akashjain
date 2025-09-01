@@ -13,7 +13,8 @@ const Testimonial = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const res = await fetch("/api/review")
+                // const res = await fetch("/api/review")
+                const res = await fetch("/api/review", { cache: "no-store" })
                 const data = await res.json()
                 if (data.success) {
                     setReviews(data.data || [])
