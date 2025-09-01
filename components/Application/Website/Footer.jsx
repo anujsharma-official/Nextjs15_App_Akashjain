@@ -13,6 +13,13 @@ import { FiTwitter } from "react-icons/fi";
 
 import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_REGISTER, WEBSITE_SHOP } from '@/routes/WebsiteRoute'
 const Footer = () => {
+             
+
+     const whatsappNumber = "9079101618";
+     const message = "Hello! I want to connect with you.";
+     const encodedMessage = encodeURIComponent(message);
+
+
     return (
         <footer className='bg-gray-50 border-t'>
             <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-10 py-10 lg:px-32 px-4'>
@@ -120,11 +127,7 @@ const Footer = () => {
                             <FaInstagram className='text-primary' size={25} />
                         </Link>
                         <Link href="">
-                            <FaWhatsapp className='text-primary' size={25} />
-                        </Link>
-
-                        <Link href="">
-                            <FiTwitter className='text-primary' size={25} />
+                            <FaWhatsapp className='text-primary'  href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`} size={25} />
                         </Link>
 
                     </div>
