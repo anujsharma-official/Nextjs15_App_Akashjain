@@ -33,7 +33,7 @@ const Footer = () => {
                         className='w-36 mb-2'
                     />
                     <p className='text-gray-500 text-sm'>
-                        <b>STYLITHIC FASHIONS</b> — your trusted destination for style, quality, and everyday convenience. From timeless fashion to daily essentials, we deliver everything you need, straight to your doorstep. Shop smarter, live better, and experience the difference — only with <b>STYLITHIC FASHIONS</b>.
+                        <b>Stylithic Fashions</b> — your trusted destination for style, quality, and everyday convenience. From timeless fashion to daily essentials, we deliver everything you need, straight to your doorstep. Shop smarter, live better, and experience the difference — only with <b>Stylithic Fashions</b>.
                     </p>
                 </div>
 
@@ -123,25 +123,39 @@ const Footer = () => {
                     </ul>
 
 
-                    <div className='flex gap-5 mt-5'>
+                    <div className="mt-6 flex items-center gap-4">
+  <h5 className="text-lg font-semibold text-gray-800">Any Query?</h5>
 
+  <div className="flex gap-3">
+    <Link
+      href="https://www.instagram.com/akash_618_?igsh=MjAxc2UzOTc4bTBh"
+      target="_blank"
+      className="w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 text-white shadow-md hover:scale-110 transition-transform"
+    >
+      <FaInstagram size={18} />
+    </Link>
 
-                        <Link href="https://www.instagram.com/akash_618_?igsh=MjAxc2UzOTc4bTBh">
-                            <FaInstagram className='text-primary' size={25} />
-                        </Link>
-                        <Link href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`}>
-                            <FaWhatsapp className='text-primary' size={25} />
-                        </Link>
+    <Link
+      href={`https://wa.me/${whatsappNumber}?text=${encodedMessage}`}
+      target="_blank"
+      className="w-9 h-9 flex items-center justify-center rounded-full bg-green-500 text-white shadow-md hover:scale-110 transition-transform"
+    >
+      <FaWhatsapp size={18} />
+    </Link>
+  </div>
+</div>
 
-                    </div>
 
                 </div>
 
             </div>
 
 
-            <div className='py-5 bg-gray-100' >
-                <p className='text-center'>© {new Date().getFullYear()} Stylithic Fashions™. All Rights Reserved.</p>
+            <div className="py-4 sm:py-5 bg-gray-100 border-t">
+                <p className="text-center text-xs sm:text-sm text-gray-600">
+                    © {new Date().getFullYear()}{" "}
+                    <span className="font-semibold">Stylithic Fashions™</span>. All Rights Reserved.
+                </p>
             </div>
 
         </footer>

@@ -10,6 +10,7 @@ export async function GET() {
         const getProduct = await ProductModel.find({ deletedAt: null }).populate('media').limit(8).lean()
 
         if (!getProduct) {
+            console.log('product not found');
             return response(false, 404, 'Product not found.')
         }
 

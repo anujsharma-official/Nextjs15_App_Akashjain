@@ -20,9 +20,13 @@ const layout = ({ children }) => {
                         {children}
                     </div>
 
-                    <div className='border-t h-[40px] flex justify-center items-center bg-gray-50 dark:bg-background text-sm'>
-                        © {new Date().getFullYear()} Stylithlc Fashions™. All Rights Reserved.
-                    </div>
+                    <div className="border-t bg-gray-50 dark:bg-background">
+  <p className="text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400 py-3">
+    © {new Date().getFullYear()}{" "}
+    <span className="font-semibold">Stylithic Fashions™</span>. All Rights Reserved.
+  </p>
+</div>
+
                 </main>
             </SidebarProvider>
         </ThemeProvider>

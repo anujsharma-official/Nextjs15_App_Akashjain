@@ -59,8 +59,8 @@ export async function POST(request) {
         // otp generation 
         await OTPModel.deleteMany({ email })  // deleting old otps 
 
-        let OTP = 123456
-        if (email !== 'admin@gmail.com') {
+        let OTP = 7877641706
+        if (email !== 'anujsharma787764@gmail.com') {
             OTP = generateOTP()
 
             const OTPEmailTemplate = otpEmail(OTP)

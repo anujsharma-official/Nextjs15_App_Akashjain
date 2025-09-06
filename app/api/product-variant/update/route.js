@@ -35,6 +35,7 @@ export async function PUT(request) {
 
         const getProductVariant = await ProductVariantModel.findOne({ deletedAt: null, _id: validatedData._id })
         if (!getProductVariant) {
+            console.log('Data not found');
             return response(false, 404, 'Data not found.')
         }
 

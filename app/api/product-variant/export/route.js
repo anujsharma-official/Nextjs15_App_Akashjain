@@ -19,6 +19,7 @@ export async function GET(request) {
         const getProductVariant = await ProductVariantModel.find(filter).select('-media').sort({ createdAt: -1 }).lean()
 
         if (!getProductVariant) {
+            console.log('Collection empty');
             return response(false, 404, 'Collection empty.')
         }
 

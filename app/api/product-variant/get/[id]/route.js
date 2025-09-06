@@ -30,6 +30,7 @@ export async function GET(request, { params }) {
         const getProductVariant = await ProductVariantModel.findOne(filter).populate('media', '_id secure_url').lean()
 
         if (!getProductVariant) {
+            console.log('Product variant not found');
             return response(false, 404, 'Product variant not found.')
         }
 

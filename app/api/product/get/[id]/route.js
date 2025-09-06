@@ -30,6 +30,7 @@ export async function GET(request, { params }) {
         const getProduct = await ProductModel.findOne(filter).populate('media', '_id secure_url').lean()
 
         if (!getProduct) {
+            console.log('product not found');
             return response(false, 404, 'Product not found.')
         }
 
