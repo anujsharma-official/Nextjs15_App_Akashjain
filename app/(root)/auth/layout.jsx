@@ -1,9 +1,12 @@
+// app/(auth)/layout.jsx
 import React from 'react'
 
-const layout = ({ children }) => {
-    return (
-        <div className='h-screen w-screen flex justify-center items-center'>{children}</div>
-    )
+const Layout = ({ children }) => {
+  return (
+    <div className="h-screen w-screen flex justify-center items-center">
+      {children}
+    </div>
+  )
 }
 
-export default layout
+export default Layout

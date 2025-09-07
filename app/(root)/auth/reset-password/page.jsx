@@ -16,13 +16,13 @@ import {
 import { Input } from "@/components/ui/input"
 import { useForm } from 'react-hook-form'
 import ButtonLoading from '@/components/Application/ButtonLoading'
-
 import Link from 'next/link'
-import { WEBSITE_LOGIN, } from '@/routes/WebsiteRoute'
+import { WEBSITE_LOGIN } from '@/routes/WebsiteRoute'
 import axios from 'axios'
 import { showToast } from '@/lib/showToast'
 import OTPVerification from '@/components/Application/OTPVerification'
 import UpdatePassword from '@/components/Application/UpdatePassword'
+
 const ResetPassword = () => {
     const [emailVerificationLoading, setEmailVerificationLoading] = useState(false)
     const [otpVerificationLoading, setOtpVerificationLoading] = useState(false)
@@ -48,14 +48,12 @@ const ResetPassword = () => {
             }
             setOtpEmail(values.email)
             showToast('success', sendOtpResponse.message)
-
         } catch (error) {
             showToast('error', error.message)
         } finally {
             setEmailVerificationLoading(false)
         }
     }
-
 
     // otp verification  
     const handleOtpVerification = async (values) => {
@@ -75,64 +73,79 @@ const ResetPassword = () => {
     }
 
     return (
-        <Card className="w-[400px]">
-            <CardContent>
-                <div className='flex justify-center'>
-                    <Image src={Logo.src} width={Logo.width} height={Logo.height} alt='logo' className='max-w-[150px]' />
-                </div>
+        <div className="flex justify-center items-center min-h-screen p-4 sm:p-6 lg:p-8 bg-gray-50">
+            <Card className="w-full max-w-md sm:max-w-lg lg:max-w-xl shadow-xl rounded-2xl">
+                <CardContent className="p-6 sm:p-8">
+                    <div className='flex justify-center mb-6'>
+                        <Image
+                            src={Logo.src}
+                            width={150}
+                            height={60}
+                            alt='logo'
+                            className='w-32 sm:w-40 lg:w-44'
+                        />
+                    </div>
 
-                {!otpEmail
-                    ?
-                    <>
-                        <div className='text-center'>
-                            <h1 className='text-3xl font-bold'>Reset Password</h1>
-                            <p>Enter your email for password reset.</p>
-                        </div>
-                        <div className='mt-5'>
+                    {!otpEmail ? (
+                        <>
+                            <div className='text-center mb-6'>
+                                <h1 className='text-2xl sm:text-3xl font-bold'>Reset Password</h1>
+                                <p className="text-sm sm:text-base text-gray-600">
+                                    Enter your email for password reset.
+                                </p>
+                            </div>
                             <Form {...form}>
-                                <form onSubmit={form.handleSubmit(handleEmailVerification)} >
-                                    <div className='mb-5'>
-                                        <FormField
-                                            control={form.control}
-                                            name="email"
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel>Email</FormLabel>
-                                                    <FormControl>
-                                                        <Input type="email" placeholder="example@gmail.com" {...field} />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
+                                <form onSubmit={form.handleSubmit(handleEmailVerification)} className="space-y-5">
+                                    <FormField
+                                        control={form.control}
+                                        name="email"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Email</FormLabel>
+                                                <FormControl>
+                                                    <Input
+                                                        type="email"
+                                                        placeholder="example@gmail.com"
+                                                        {...field}
+                                                        className="w-full"
+                                                    />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
 
-                                    <div className='mb-3'>
-                                        <ButtonLoading loading={emailVerificationLoading} type="submit" text="Send OTP" className="w-full cursor-pointer" />
-                                    </div>
-                                    <div className='text-center'>
-                                        <div className='flex justify-center items-center gap-1'>
+                                    <ButtonLoading
+                                        loading={emailVerificationLoading}
+                                        type="submit"
+                                        text="Send OTP"
+                                        className="w-full cursor-pointer"
+                                    />
 
-                                            <Link href={WEBSITE_LOGIN} className='text-primary underline'>Back To Login</Link>
-                                        </div>
-
+                                    <div className='text-center text-sm sm:text-base'>
+                                        <Link href={WEBSITE_LOGIN} className='text-primary underline'>
+                                            Back To Login
+                                        </Link>
                                     </div>
                                 </form>
                             </Form>
-                        </div>
-                    </>
-                    :
-                    <>
-                        {!isOtpVerified
-                            ?
-                            <OTPVerification email={otpEmail} onSubmit={handleOtpVerification} loading={otpVerificationLoading} />
-                            :
-                            <UpdatePassword email={otpEmail} />
-                        }
-                    </>
-                }
-            </CardContent>
-        </Card>
+                        </>
+                    ) : (
+                        <>
+                            {!isOtpVerified ? (
+                                <OTPVerification
+                                    email={otpEmail}
+                                    onSubmit={handleOtpVerification}
+                                    loading={otpVerificationLoading}
+                                />
+                            ) : (
+                                <UpdatePassword email={otpEmail} />
+                            )}
+                        </>
+                    )}
+                </CardContent>
+            </Card>
+        </div>
     )
 }
 

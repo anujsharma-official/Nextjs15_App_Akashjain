@@ -28,6 +28,7 @@ import { useDispatch } from 'react-redux'
 import { login } from '@/store/reducer/authReducer'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ADMIN_DASHBOARD } from '@/routes/AdminPanelRoute'
+
 const LoginPage = () => {
     const dispatch = useDispatch()
     const searchParams = useSearchParams()
@@ -68,7 +69,6 @@ const LoginPage = () => {
         }
     }
 
-
     // otp verification  
     const handleOtpVerification = async (values) => {
         try {
@@ -96,23 +96,30 @@ const LoginPage = () => {
     }
 
     return (
-        <Card className="w-[400px]">
-            <CardContent>
-                <div className='flex justify-center'>
-                    <Image src={Logo.src} width={Logo.width} height={Logo.height} alt='logo' className='max-w-[150px]' />
-                </div>
+        <div className="flex justify-center items-center min-h-screen p-4 sm:p-6 lg:p-8 bg-gray-50">
+            <Card className="w-full max-w-md sm:max-w-lg lg:max-w-xl shadow-xl rounded-2xl">
+                <CardContent className="p-6 sm:p-8">
+                    <div className='flex justify-center mb-6'>
+                        <Image
+                            src={Logo.src}
+                            width={150}
+                            height={60}
+                            alt='logo'
+                            className='w-32 sm:w-40 lg:w-44'
+                        />
+                    </div>
 
-                {!otpEmail
-                    ?
-                    <>
-                        <div className='text-center'>
-                            <h1 className='text-3xl font-bold'>Login Into Account</h1>
-                            <p>Login into your account by filling out the form below.</p>
-                        </div>
-                        <div className='mt-5'>
-                            <Form {...form}>
-                                <form onSubmit={form.handleSubmit(handleLoginSubmit)} >
-                                    <div className='mb-5'>
+                    {!otpEmail ? (
+                        <>
+                            <div className='text-center mb-6'>
+                                <h1 className='text-2xl sm:text-3xl font-bold'>Login Into Account</h1>
+                                <p className="text-sm sm:text-base text-gray-600">
+                                    Login into your account by filling out the form below.
+                                </p>
+                            </div>
+                            <div>
+                                <Form {...form}>
+                                    <form onSubmit={form.handleSubmit(handleLoginSubmit)} className="space-y-5">
                                         <FormField
                                             control={form.control}
                                             name="email"
@@ -120,14 +127,18 @@ const LoginPage = () => {
                                                 <FormItem>
                                                     <FormLabel>Email</FormLabel>
                                                     <FormControl>
-                                                        <Input type="email" placeholder="example@gmail.com" {...field} />
+                                                        <Input
+                                                            type="email"
+                                                            placeholder="example@gmail.com"
+                                                            {...field}
+                                                            className="w-full"
+                                                        />
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
                                             )}
                                         />
-                                    </div>
-                                    <div className='mb-5'>
+
                                         <FormField
                                             control={form.control}
                                             name="password"
@@ -135,43 +146,59 @@ const LoginPage = () => {
                                                 <FormItem className="relative">
                                                     <FormLabel>Password</FormLabel>
                                                     <FormControl>
-                                                        <Input type={isTypePassword ? 'password' : 'text'} placeholder="***********" {...field} />
+                                                        <Input
+                                                            type={isTypePassword ? 'password' : 'text'}
+                                                            placeholder="***********"
+                                                            {...field}
+                                                            className="w-full pr-10"
+                                                        />
                                                     </FormControl>
-                                                    <button className='absolute top-1/2 right-2 cursor-pointer' type='button' onClick={() => setIsTypePassword(!isTypePassword)}>
-                                                        {isTypePassword ?
-                                                            <FaRegEyeSlash />
-                                                            :
-                                                            <FaRegEye />
-                                                        }
+                                                    <button
+                                                        className='absolute top-[38px] right-3 cursor-pointer text-gray-500'
+                                                        type='button'
+                                                        onClick={() => setIsTypePassword(!isTypePassword)}
+                                                    >
+                                                        {isTypePassword ? <FaRegEyeSlash /> : <FaRegEye />}
                                                     </button>
                                                     <FormMessage />
                                                 </FormItem>
                                             )}
                                         />
-                                    </div>
-                                    <div className='mb-3'>
-                                        <ButtonLoading loading={loading} type="submit" text="Login" className="w-full cursor-pointer" />
-                                    </div>
-                                    <div className='text-center'>
-                                        <div className='flex justify-center items-center gap-1'>
-                                            <p>Don't have account?</p>
-                                            <Link href={WEBSITE_REGISTER} className='text-primary underline'>Create account!</Link>
-                                        </div>
-                                        <div className='mt-3'>
-                                            <Link href={WEBSITE_RESETPASSWORD} className='text-primary underline'>Forgot password?</Link>
-                                        </div>
-                                    </div>
-                                </form>
-                            </Form>
-                        </div>
-                    </>
-                    :
-                    <OTPVerification email={otpEmail} onSubmit={handleOtpVerification} loading={otpVerificationLoading} />
-                }
 
+                                        <ButtonLoading
+                                            loading={loading}
+                                            type="submit"
+                                            text="Login"
+                                            className="w-full cursor-pointer"
+                                        />
 
-            </CardContent>
-        </Card>
+                                        <div className='text-center text-sm sm:text-base'>
+                                            <div className='flex justify-center items-center gap-1'>
+                                                <p>Don't have account?</p>
+                                                <Link href={WEBSITE_REGISTER} className='text-primary underline'>
+                                                    Create account!
+                                                </Link>
+                                            </div>
+                                            <div className='mt-3'>
+                                                <Link href={WEBSITE_RESETPASSWORD} className='text-primary underline'>
+                                                    Forgot password?
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </Form>
+                            </div>
+                        </>
+                    ) : (
+                        <OTPVerification
+                            email={otpEmail}
+                            onSubmit={handleOtpVerification}
+                            loading={otpVerificationLoading}
+                        />
+                    )}
+                </CardContent>
+            </Card>
+        </div>
     )
 }
 
