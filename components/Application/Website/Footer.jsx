@@ -128,7 +128,7 @@ const Footer = () => {
 
   <div className="flex gap-3">
     <Link
-      href="https://www.instagram.com/akash_618_?igsh=MjAxc2UzOTc4bTBh"
+      href="https://www.instagram.com/fas_stylithic13?igsh=MTFvMHQ1NjF5eXhscg=="
       target="_blank"
       className="w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 text-white shadow-md hover:scale-110 transition-transform"
     >
