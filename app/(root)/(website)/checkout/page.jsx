@@ -192,7 +192,7 @@ const Checkout = () => {
                 "key": process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
                 "amount": totalAmount * 100,
                 "currency": "INR",
-                "name": "E-store",
+                "name": "Stylithic Fashions",
                 "description": "Payment for order",
                 "image": "https://res.cloudinary.com/dg7efdu9o/image/upload/v1750052410/logo-black_mb1rve.webp",
                 "order_id": order_id,
