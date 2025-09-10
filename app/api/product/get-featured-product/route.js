@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 import { connectDB } from "@/lib/databaseConnection";
 import { catchError, response } from "@/lib/helperFunction";
 import ProductModel from "@/models/Product.model";
@@ -11,21 +9,12 @@ export async function GET() {
 
         const getProduct = await ProductModel.find({ deletedAt: null }).populate('media').limit(8).lean()
 
-        if (!getProduct || getProduct.length === 0) {
-            return response(false, 404, "No products found.");
+        if (!getProduct) {
+            console.log('product not found');
+            return response(false, 404, 'Product not found.')
         }
 
-        return new Response(
-            JSON.stringify({ success: true, data: getProduct }),
-            {
-                status: 200,
-                headers: {
-                    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-                    "Pragma": "no-cache",
-                    "Expires": "0"
-                },
-            }
-        );
+        return response(true, 200, 'Product found.', getProduct)
 
     } catch (error) {
         return catchError(error)
