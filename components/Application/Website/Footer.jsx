@@ -15,7 +15,11 @@ import { USER_DASHBOARD, WEBSITE_HOME, WEBSITE_LOGIN, WEBSITE_REGISTER, WEBSITE_
 const Footer = () => {
 
 
+<<<<<<< HEAD
     const whatsappNumber = "7426865535";
+=======
+    const whatsappNumber = "9079101618";
+>>>>>>> 734995422b07f45cb597e33a89578fbd45aa2e57
     const message = "Hello! I want to connect with you.";
     const encodedMessage = encodeURIComponent(message);
 
@@ -113,7 +117,11 @@ const Footer = () => {
 
                         <li className='mb-2 text-gray-500 flex gap-2'>
                             <MdOutlinePhone size={20} />
+<<<<<<< HEAD
                             <Link href="tel:+91-9079101618" className='hover:text-primary text-sm'>+91-7426865535</Link>
+=======
+                            <Link href="tel:+91-9079101618" className='hover:text-primary text-sm'>+91-9079101618</Link>
+>>>>>>> 734995422b07f45cb597e33a89578fbd45aa2e57
                         </li>
                         <li className='mb-2 text-gray-500 flex gap-2'>
                             <MdOutlineMail size={20} />

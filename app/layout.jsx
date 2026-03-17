@@ -1,19 +1,20 @@
 import GlobalProvider from "@/components/Application/GlobalProvider";
 import "./globals.css";
-import { Assistant } from 'next/font/google'
-import { ToastContainer } from 'react-toastify';
-import Analytics from "@/components/Application/Analytics"
-import Script from "next/script"; // ✅ ye add karo
+import { Assistant } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import Analytics from "@/components/Application/Analytics";
+import Script from "next/script";
 
 const assistantFont = Assistant({
-  weight: ['400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  display: 'swap'
-})
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Stylithic Fashions | Premium Online Shopping Experience",
-  description: "Discover Stylithic Fashions – your one-stop destination for premium clothing, accessories, and lifestyle products.",
+  description:
+    "Discover Stylithic Fashions – your one-stop destination for premium clothing, accessories, and lifestyle products.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -23,14 +24,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${assistantFont.className} antialiased`}>
-        
         <GlobalProvider>
           <ToastContainer />
-          <Analytics /> 
+          <Analytics />
           {children}
         </GlobalProvider>
 
-        {/* ✅ YAHAN chatbot script lagana hai */}
+        {/* Chatbot Script */}
         <Script
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -45,13 +45,12 @@ export default function RootLayout({ children }) {
                 js.charset = 'UTF-8';
                 el.parentNode.insertBefore(js, el);
                 js.onload = function () {
-                  var w = window.ConferbotWidget("69b9098e81b201edcb37557b", "popup_chat");
+                  window.ConferbotWidget("69b9098e81b201edcb37557b", "popup_chat");
                 };
               })(document, 'script', 'conferbot-js');
             `,
           }}
         />
-
       </body>
     </html>
   );
