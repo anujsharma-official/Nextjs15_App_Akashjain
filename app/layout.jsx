@@ -18,6 +18,8 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  manifest: "/manifest.json", // ✅ PWA
+  themeColor: "#000000", // ✅ PWA
 };
 
 export default function RootLayout({ children }) {
@@ -30,7 +32,7 @@ export default function RootLayout({ children }) {
           {children}
         </GlobalProvider>
 
-        {/* Chatbot Script */}
+        {/* ✅ Chatbot Script */}
         <Script
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -48,6 +50,20 @@ export default function RootLayout({ children }) {
                   window.ConferbotWidget("69b9098e81b201edcb37557b", "popup_chat");
                 };
               })(document, 'script', 'conferbot-js');
+            `,
+          }}
+        />
+
+        {/* ✅ Service Worker Register (PWA) */}
+        <Script
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                  navigator.serviceWorker.register('/sw.js');
+                });
+              }
             `,
           }}
         />
